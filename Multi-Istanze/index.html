@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      .box {
+        padding: 10px;
+        border: 1px solid black;
+        text-align:center;
+      }
+    </style>
+</head>
+<body>
+  <div class="container text-center">
+    <div id="app1">
+      <div class="box">
+        <h2 ref="title"> {{ message }}</h2>
+        <img :src="imgLink" width="350">
+      </div>
+    </div>
+    <hr>
+    <div id="app2">
+      <div class="box">
+        <h2 ref="title2"> {{ message }}</h2>
+        <img :src="imgLink"  width="350" >
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+var app1 = new Vue ({
+  el: '#app1',
+  data: {
+    message : "Clicca lui!",
+    imgLink : "http://m0.her.ie/wp-content/uploads/2015/06/24160726/homer-running-gif.gif"
+  }
+
+});
+
+setTimeout(function(){
+  app1.$refs.title.innerText = " Scegli!! Il vecchio è più lento di me!";
+
+},5000);
+
+var app2 = new Vue ({
+  el: '#app2',
+  data: {
+    message : "NO! Clicca su di lui!!",
+    imgLink : "https://i.pinimg.com/originals/ed/88/2a/ed882a07b3f91bc6a9b62b64b490ead8.gif"
+  }
+});
+setTimeout(function(){
+  app2.$refs.title2.innerText = " Scegli lui! Io ho molte storie da raccontare";
+
+},6000);
+
+</script>
+</html>
